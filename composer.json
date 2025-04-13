@@ -1,0 +1,27 @@
+{
+    "name": "rami/entity-kit-bundle",
+    "description": "modern Symfony bundle that gives your Doctrine entities superpowers with minimal boilerplate. It provides a growing collection of prebuilt behaviors.",
+    "type": "symfony-bundle",
+    "require": {
+        "symfony/http-kernel": "^7.0",
+        "symfony/dependency-injection": "^7.0",
+        "symfony/config": "^7.2"
+    },
+    "require-dev": {
+        "php": "^8.3",
+        "phpstan/phpstan": "^2.1",
+        "symfony/phpunit-bridge": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rami\\EntityKitBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdellah Ramadan",
+            "email": "ramadanabdel24@gmail.com"
+        }
+    ]
+}
