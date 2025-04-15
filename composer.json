@@ -1,11 +1,14 @@
 {
     "name": "rami/entity-kit-bundle",
-    "description": "modern Symfony bundle that gives your Doctrine entities superpowers with minimal boilerplate. It provides a growing collection of prebuilt behaviors.",
+    "description": "rami/entity-kit-bundle is a modern Symfony bundle that gives your Doctrine entities superpowers with minimal boilerplate. It provides a growing collection of prebuilt behaviors — like Timestamp, Slugging, auditing, and more — as modular, composable traits or attributes.\n\nWhether you're building an API or an admin panel, this kit helps you automate repetitive entity logic while keeping your codebase clean, readable, and testable.",
     "type": "symfony-bundle",
     "require": {
         "symfony/http-kernel": "^7.0",
         "symfony/dependency-injection": "^7.0",
-        "symfony/config": "^7.2"
+        "symfony/config": "^7.0",
+        "doctrine/orm": "^3.3",
+        "symfony/property-access": "^7.0",
+        "symfony/string": "^7.0"
     },
     "require-dev": {
         "php": "^8.3",
