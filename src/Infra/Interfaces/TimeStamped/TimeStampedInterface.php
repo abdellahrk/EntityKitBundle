@@ -1,6 +1,6 @@
 <?php
 
-namespace Rami\EntityKitBundle\TimeStamp;
+namespace Rami\EntityKitBundle\Infra\Interfaces\TimeStamped;
 
 interface TimeStampedInterface
 {
