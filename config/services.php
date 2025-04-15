@@ -21,7 +21,6 @@ return static function (ContainerConfigurator $container) {
     $services
         ->set(SluggedListener::class)
         ->args([
-            new Reference(SluggerInterface::class),
             new Reference(ManagerRegistry::class)
         ])
         ->tag('doctrine.event_listener', ['event' => 'prePersist'])

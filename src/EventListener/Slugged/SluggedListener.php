@@ -9,12 +9,12 @@ use Rami\EntityKitBundle\Exceptions\PropertyDoesNotExistException;
 use Rami\EntityKitBundle\Infra\Attributes\Slugged;
 use Rami\EntityKitBundle\Infra\Interfaces\Slugged\SluggedInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 readonly class SluggedListener
 {
     public function __construct(
-        private SluggerInterface $slugger,
         private ManagerRegistry $managerRegistry,
     )
     {
@@ -81,7 +81,9 @@ readonly class SluggedListener
 
         $slugFied = implode( ' ', $slugFieds);
 
-        $slugFied = $this->slugger->slug($slugFied, $separator)->lower();
+        $slugger = new AsciiSlugger();
+
+        $slugFied = $slugger->slug($slugFied, $separator)->lower();
 
         if (true === $attributes->ensureUnique) {
             $slugFied = $this->ensureUniqueSlug($entity, $slugFied, $separator);
