@@ -76,7 +76,17 @@ readonly class SluggedListener
             if (!$propertyAccessor->isReadable($entity, $field)) {
                 throw new PropertyDoesNotExistException();
             }
-            $slugFieds[] = $propertyAccessor->getValue($entity, $field);
+            $currentValue = $propertyAccessor->getValue($entity, $field);
+
+            if ($currentValue instanceof \DateTimeInterface || $currentValue instanceof \DateTime) {
+                $currentValue = $currentValue->format('Y-m-d H:i:s');
+            }
+
+            if (!is_string($currentValue)) {
+                $currentValue = (string) $currentValue;
+            }
+
+            $slugFieds[] = $currentValue;
         }
 
         $slugFied = implode( ' ', $slugFieds);
@@ -99,7 +109,7 @@ readonly class SluggedListener
 
         while (true) {
             $existing = $managerRegistry->getRepository(get_class($entity))->findOneBy(['slug' => $slug]);
-            if (!$existing) {
+            if (!$existing || $existing === $entity) {
                 break;
             }
             $slug = $this->parseExistingSlug($slug, $separator, $count);
@@ -112,7 +122,7 @@ readonly class SluggedListener
     private function parseExistingSlug(string $slug, string $separator, int $count): string
     {
         $words = explode($separator, $slug);
-        if ($words === $slug) {
+        if ($words == $slug) {
             return $slug;
         }
 
