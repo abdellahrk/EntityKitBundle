@@ -1,8 +1,10 @@
 <?php
 
 use Doctrine\Persistence\ManagerRegistry;
+use Rami\EntityKitBundle\EventListener\Authored\AuthoredListener;
 use Rami\EntityKitBundle\EventListener\Slugged\SluggedListener;
 use Rami\EntityKitBundle\EventListener\TimeStamped\TimeStampedListener;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -23,6 +25,12 @@ return static function (ContainerConfigurator $container) {
         ->args([
             new Reference(ManagerRegistry::class)
         ])
+        ->tag('doctrine.event_listener', ['event' => 'prePersist'])
+        ->tag('doctrine.event_listener', ['event' => 'preUpdate']);
+
+    $services
+        ->set(AuthoredListener::class)
+        ->args([new Reference(Security::class)])
         ->tag('doctrine.event_listener', ['event' => 'prePersist'])
         ->tag('doctrine.event_listener', ['event' => 'preUpdate']);
 };
