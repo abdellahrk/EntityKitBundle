@@ -1,9 +1,9 @@
 The slug is useful to generate url
 
 ```php
-use Rami\EntityKitBundle\Infra\Interfaces\Slugged\SluggedInterface;
+use Rami\EntityKitBundle\Common\Interfaces\Slugged\SluggedInterface;
 use Rami\EntityKitBundle\Entity\Traits\SluggedTrait;
-use Rami\EntityKitBundle\Infra\Attributes\Slugged;
+use Rami\EntityKitBundle\Common\Attributes\Slugged;
 
 #[Slugged(fields: ['title'])]
 class Blog implements SluggedInterface 

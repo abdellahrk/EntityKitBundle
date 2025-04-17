@@ -4,7 +4,7 @@ namespace Rami\EntityKitBundle\EventListener\TimeStamped;
 
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use Rami\EntityKitBundle\Infra\Interfaces\TimeStamped\TimeStampedInterface;
+use Rami\EntityKitBundle\Common\Interfaces\TimeStamped\TimeStampedInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 readonly class TimeStampedListener

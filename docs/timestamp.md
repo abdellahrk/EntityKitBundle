@@ -1,7 +1,7 @@
 This keeps track of timestamp of the lifecycle of a model.
 
 ```php
-use Rami\EntityKitBundle\Infra\Interfaces\TimeStamped\TimeStampedInterface;
+use Rami\EntityKitBundle\Common\Interfaces\TimeStamped\TimeStampedInterface;
 use Rami\EntityKitBundle\Entity\Traits\TimeStampedTrait;
 
 class Blog implements TimeStampedInterface 

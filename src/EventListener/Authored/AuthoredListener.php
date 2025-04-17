@@ -13,7 +13,7 @@ namespace Rami\EntityKitBundle\EventListener\Authored;
 
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use Rami\EntityKitBundle\Infra\Interfaces\Authored\AuthoredInterface;
+use Rami\EntityKitBundle\Common\Interfaces\Authored\AuthoredInterface;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
