@@ -5,12 +5,11 @@ namespace Rami\EntityKitBundle\EventListener\Slugged;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\Persistence\ManagerRegistry;
+use Rami\EntityKitBundle\Common\Attributes\Slugged;
+use Rami\EntityKitBundle\Common\Interfaces\Slugged\SluggedInterface;
 use Rami\EntityKitBundle\Exceptions\PropertyDoesNotExistException;
-use Rami\EntityKitBundle\Infra\Attributes\Slugged;
-use Rami\EntityKitBundle\Infra\Interfaces\Slugged\SluggedInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\String\Slugger\AsciiSlugger;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 readonly class SluggedListener
 {

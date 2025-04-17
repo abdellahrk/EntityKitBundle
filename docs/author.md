@@ -1,7 +1,7 @@
 This keeps track of who created and who modified an entity.
 
 ```php
-use Rami\EntityKitBundle\Infra\Interfaces\Authored\AuthoredInterface;
+use Rami\EntityKitBundle\Common\Interfaces\Authored\AuthoredInterface;
 use \Rami\EntityKitBundle\Entity\Traits\AuthoredTrait;
 
 class Blog implements AuthoredInterface 

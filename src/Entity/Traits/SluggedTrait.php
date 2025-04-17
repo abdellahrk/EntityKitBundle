@@ -2,11 +2,12 @@
 
 namespace Rami\EntityKitBundle\Entity\Traits;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 trait SluggedTrait
 {
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     public ?string $slug = null;
 
     public function getSlug(): ?string

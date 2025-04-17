@@ -1,6 +1,6 @@
 <?php
 
-namespace Rami\EntityKitBundle\Infra\Attributes;
+namespace Rami\EntityKitBundle\Common\Attributes;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
 class Slugged
