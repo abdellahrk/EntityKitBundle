@@ -14,13 +14,13 @@ namespace Rami\EntityKitBundle\EventListener\Authored;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Rami\EntityKitBundle\Common\Interfaces\Authored\AuthoredInterface;
-use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 readonly class AuthoredListener
 {
     public function __construct(
-        private Security $security,
+        private TokenStorageInterface $tokenStorage,
     ) {}
     public function prePersist(PrePersistEventArgs $args): void
     {
@@ -54,7 +54,7 @@ readonly class AuthoredListener
 
     private function getCurrentUserIdentifier(): string|null
     {
-        $user = $this->security->getUser();
+        $user = $this->tokenStorage->getToken()->getUser();
 
         if (!$user instanceof UserInterface) {
             return null;
