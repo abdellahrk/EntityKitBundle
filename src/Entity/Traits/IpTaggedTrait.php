@@ -17,10 +17,10 @@ use Doctrine\ORM\Mapping as ORM;
 trait IpTaggedTrait
 {
     #[ORM\Column(type: Types::STRING, nullable: true)]
-    public ?string $createdFromIp = null;
+    private ?string $createdFromIp = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
-    public ?string $updatedFromIp = null;
+    private ?string $updatedFromIp = null;
 
     /**
      * @return string|null

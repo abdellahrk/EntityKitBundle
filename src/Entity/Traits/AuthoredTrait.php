@@ -17,10 +17,10 @@ use Doctrine\ORM\Mapping as ORM;
 trait AuthoredTrait
 {
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
-    public ?string $createdBy = null;
+    private ?string $createdBy = null;
 
     #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
-    public ?string $updatedBy = null;
+    private ?string $updatedBy = null;
 
     public function getCreatedBy(): ?string
     {
