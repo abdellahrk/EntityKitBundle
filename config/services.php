@@ -5,10 +5,10 @@ use Rami\EntityKitBundle\EventListener\Authored\AuthoredListener;
 use Rami\EntityKitBundle\EventListener\IpTagged\IpTaggedListener;
 use Rami\EntityKitBundle\EventListener\Slugged\SluggedListener;
 use Rami\EntityKitBundle\EventListener\TimeStamped\TimeStampedListener;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 return static function (ContainerConfigurator $container) {
     $services = $container->services()
@@ -31,7 +31,7 @@ return static function (ContainerConfigurator $container) {
 
     $services
         ->set(AuthoredListener::class)
-        ->args([new Reference(Security::class)])
+        ->args([new Reference(TokenStorageInterface::class)])
         ->tag('doctrine.event_listener', ['event' => 'prePersist'])
         ->tag('doctrine.event_listener', ['event' => 'preUpdate']);
 
