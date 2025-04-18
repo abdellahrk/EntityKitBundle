@@ -51,10 +51,6 @@ readonly class SluggedListener
     {
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
-        if (!$propertyAccessor->isReadable($entity, 'slug')) {
-            throw new PropertyDoesNotExistException();
-        }
-
         $attribute = new \ReflectionClass($entity);
         $attribute = $attribute->getAttributes(Slugged::class)[0] ?? null;
 
