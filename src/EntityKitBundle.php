@@ -1,23 +1,23 @@
 <?php
+/*
+ * Copyright (c) 2025.
+ *
+ * This file is part of the Entity Kit Bundle project
+ * @author Abdellah Ramadan <ramadanabdel24@gmail.com>
+ *
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ */
 
 namespace Rami\EntityKitBundle;
 
-use Psr\Log\LoggerInterface;
-use Rami\EntityKitBundle\DependencyInjection\Compiler\DoctrineEventSubscriberPass;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
-use Symfony\Component\HttpKernel\Log\Logger;
 
 class EntityKitBundle extends AbstractBundle
 {
-//    public function getPath(): string
-//    {
-//        return __DIR__;
-//    }
-
     public function getPath(): string
     {
         $reflected = new \ReflectionObject($this);
@@ -33,12 +33,5 @@ class EntityKitBundle extends AbstractBundle
     public function configure(DefinitionConfigurator $definition): void
     {
         $definition->import('../config/definition.php');
-    }
-
-    public function build(ContainerBuilder $container): void
-    {
-        parent::build($container);
-
-        //$container->addCompilerPass(new DoctrineEventSubscriberPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 10);
     }
 }

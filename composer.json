@@ -13,7 +13,9 @@
         "doctrine/orm": "^2.10 || ^3.0",
         "symfony/property-access": "^6.4 || ^7.0",
         "symfony/string": "^6.4 || ^7.0",
-        "symfony/security-bundle": "^6.4 || ^7.0"
+        "symfony/security-bundle": "^6.4 || ^7.0",
+        "symfony/doctrine-bridge": "^7.2",
+        "symfony/uid": "^6.4 || ^7.0"
     },
     "require-dev": {
         "phpstan/phpstan": "*",

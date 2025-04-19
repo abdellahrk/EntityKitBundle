@@ -9,12 +9,13 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Rami\EntityKitBundle\Common\Attributes;
+namespace Rami\EntityKitBundle\Common\Interfaces\Uuid;
 
-use Attribute;
+use Symfony\Component\Uid\Uuid;
 
-#[Attribute(Attribute::TARGET_PROPERTY)]
-class LoggedEntityProperty
+interface UuidInterface
 {
+    public function getUuid(): ?Uuid;
 
+    public function setUuid(Uuid $uuid): static;
 }

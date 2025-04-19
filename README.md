@@ -6,11 +6,11 @@ A set of Doctrine Entity features to automate repetitive entity tasks and ease d
 - [x] [Timestamp](docs/timestamp.md)
 - [x] [Slug](docs/slug.md)
 - [x] [Author (Blame)](docs/author.md)
-- [ ] Translation
+- [x] [UUID](docs/uuid.md)
 - [x] [IP Tagged](docs/ip_tagged.md)
 - [ ] Logging
 - [ ] Tree
-- [ ] UUID
+- [ ] Translation
 
 Installation
 ============

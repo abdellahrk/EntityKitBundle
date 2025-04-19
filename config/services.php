@@ -1,10 +1,13 @@
 <?php
 
 use Doctrine\Persistence\ManagerRegistry;
+use Psr\Log\LoggerInterface;
 use Rami\EntityKitBundle\EventListener\Authored\AuthoredListener;
 use Rami\EntityKitBundle\EventListener\IpTagged\IpTaggedListener;
+use Rami\EntityKitBundle\EventListener\LoggedEntity\LoggedEntityListener;
 use Rami\EntityKitBundle\EventListener\Slugged\SluggedListener;
 use Rami\EntityKitBundle\EventListener\TimeStamped\TimeStampedListener;
+use Rami\EntityKitBundle\EventListener\Uuid\UuidListener;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -40,4 +43,13 @@ return static function (ContainerConfigurator $container) {
         ->args([new Reference(RequestStack::class)])
         ->tag('doctrine.event_listener', ['event' => 'prePersist'])
         ->tag('doctrine.event_listener', ['event' => 'preUpdate']);
+
+    $services
+        ->set(LoggedEntityListener::class)
+        ->args([new Reference(LoggerInterface::class)])
+        ->tag('doctrine.event_listener', ['event' => 'postPersist']);
+
+    $services
+        ->set(UuidListener::class)
+        ->tag('doctrine.event_listener', ['event' => 'prePersist']);
 };
