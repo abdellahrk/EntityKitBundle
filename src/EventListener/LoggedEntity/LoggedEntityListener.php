@@ -9,14 +9,13 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Rami\EntityKitBundle\EventListener\Logged;
+namespace Rami\EntityKitBundle\EventListener\LoggedEntity;
 
 use Doctrine\ORM\Event\PostPersistEventArgs;
 use Psr\Log\LoggerInterface;
 use Rami\EntityKitBundle\Common\Attributes\LoggedEntity;
-use Rami\EntityKitBundle\Common\Attributes\LoggedProperty;
 
-final readonly class LoggedListener
+final readonly class LoggedEntityListener
 {
     public function __construct(
         private LoggerInterface $logger,
@@ -37,8 +36,8 @@ final readonly class LoggedListener
 
         $changes = $event->getObjectManager()->getUnitOfWork()->getEntityChangeSet($entity);
 
-        foreach ($changes as $change => [$old, $new]) {
-
+        foreach ($changes as $field => [$old, $new]) {
+            $this->logger->notice(sprintf('%s of %s changed from %s to %s', $field, get_class($entity), $old, $new));
         }
     }
 }
