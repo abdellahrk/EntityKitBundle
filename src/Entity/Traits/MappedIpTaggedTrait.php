@@ -11,10 +11,15 @@
 
 namespace Rami\EntityKitBundle\Entity\Traits;
 
-trait IpTaggedTrait
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+trait MappedIpTaggedTrait
 {
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     protected ?string $createdFromIp = null;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     protected ?string $updatedFromIp = null;
 
     /**

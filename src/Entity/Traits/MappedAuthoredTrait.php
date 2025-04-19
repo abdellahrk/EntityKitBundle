@@ -11,10 +11,15 @@
 
 namespace Rami\EntityKitBundle\Entity\Traits;
 
-trait AuthoredTrait
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+trait MappedAuthoredTrait
 {
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     protected ?string $createdBy = null;
 
+    #[ORM\Column(type: Types::STRING, length: 100, nullable: true)]
     protected ?string $updatedBy = null;
 
     public function getCreatedBy(): ?string

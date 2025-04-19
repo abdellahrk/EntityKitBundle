@@ -9,8 +9,13 @@ use Rami\EntityKitBundle\Common\Attributes\Slugged;
 class Blog implements SluggedInterface 
 {
     use SluggedTrait;
+    
+    #[ORM\Column(...)] <-- Your Mapping
+    protected ?string slug = null;
 }
 ```
+
+if you want the default mapping, use `MappedSluggedTrait` instead of `SluggedTrait` and you won't have to define the `slug` property in your Entity
 
 The attribute has some default params.
 ```markdown
