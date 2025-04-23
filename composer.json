@@ -14,17 +14,26 @@
         "symfony/property-access": "^6.4 || ^7.0",
         "symfony/string": "^6.4 || ^7.0",
         "symfony/security-bundle": "^6.4 || ^7.0",
-        "symfony/doctrine-bridge": "^7.2",
-        "symfony/uid": "^6.4 || ^7.0"
+        "symfony/doctrine-bridge": "^6.4 || ^7.0",
+        "symfony/uid": "^6.4 || ^7.0",
+        "doctrine/doctrine-bundle": "^2.14"
     },
     "require-dev": {
         "phpstan/phpstan": "*",
-        "symfony/phpunit-bridge": "^6.4 || ^7.0"
+        "symfony/phpunit-bridge": "^6.4 || ^7.0",
+        "symfony/test-pack": "^1.1",
+        "symfony/framework-bundle": "^6.4 || ^7.0",
+        "symfony/yaml": "^6.4 || ^7.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Rami\\EntityKitBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rami\\EntityKitBundle\\Tests\\": "tests/"
         }
     },
     "authors": [
