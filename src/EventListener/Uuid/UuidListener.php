@@ -14,7 +14,6 @@ namespace Rami\EntityKitBundle\EventListener\Uuid;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Rami\EntityKitBundle\Common\Interfaces\Uuid\UuidInterface;
 use Symfony\Component\Uid\Uuid;
-use Symfony\Component\Uid\UuidV4;
 
 class UuidListener
 {

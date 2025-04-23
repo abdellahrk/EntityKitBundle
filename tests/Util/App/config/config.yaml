@@ -1,0 +1,26 @@
+framework:
+  secret: "test"
+  test: ~
+
+doctrine:
+  dbal:
+    driver: "pdo_sqlite"
+    path:   "%kernel.cache_dir%/../database.db3"
+
+  orm:
+    mappings:
+      Test:
+        dir: '%kernel.project_dir%/'
+        prefix: 'Rami\EntityKitBundle\Tests\Util\Entity'
+
+security:
+  providers:
+    test_users:
+      memory: null
+
+  firewalls:
+    test:
+      pattern: ^/
+      security: false
+
+  access_control: []

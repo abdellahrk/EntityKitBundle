@@ -17,10 +17,10 @@ use Rami\EntityKitBundle\Common\Interfaces\Authored\AuthoredInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-readonly class AuthoredListener
+class AuthoredListener
 {
     public function __construct(
-        private TokenStorageInterface $tokenStorage,
+        private ?TokenStorageInterface $tokenStorage = null,
     ) {}
     public function prePersist(PrePersistEventArgs $args): void
     {
@@ -54,6 +54,10 @@ readonly class AuthoredListener
 
     private function getCurrentUserIdentifier(): string|null
     {
+        if (null === $this->tokenStorage) {
+            return null;
+        }
+
         $user = $this->tokenStorage->getToken()->getUser();
 
         if (!$user instanceof UserInterface) {
