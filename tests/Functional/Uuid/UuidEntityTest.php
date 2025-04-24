@@ -36,9 +36,6 @@ class UuidEntityTest extends BaseKernel
 
         $this->assertInstanceOf(User::class, $user);
         $this->assertInstanceOf(Uuid::class, $user->getUuid());
-
-        $filesystem = new Filesystem();
-        $filesystem->remove('var/database.db3');
     }
 
 }
