@@ -88,6 +88,14 @@ readonly class SluggedListener
 
         $slugger = new AsciiSlugger();
 
+        if (null !== $attributes->prefix) {
+            $slugFied = $attributes->prefix . ' ' . $slugFied;
+        }
+
+        if (null !== $attributes->suffix) {
+            $slugFied =  $slugFied . ' ' . $attributes->suffix;
+        }
+
         $slugFied = $slugger->slug($slugFied, $separator)->lower();
 
         if (true === $attributes->ensureUnique) {
