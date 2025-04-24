@@ -17,6 +17,7 @@ use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\Filesystem\Filesystem;
 
 class BaseKernel extends KernelTestCase
 {
@@ -32,5 +33,13 @@ class BaseKernel extends KernelTestCase
         $metaData = $this->entityManager->getMetadataFactory()->getAllMetadata();
         $schemaTool = new SchemaTool($this->entityManager);
         $schemaTool->updateSchema($metaData);
+    }
+
+    public function tearDown(): void
+    {
+        parent::tearDown();
+
+        $filesystem = new Filesystem();
+        $filesystem->remove('var/database.db3');
     }
 }

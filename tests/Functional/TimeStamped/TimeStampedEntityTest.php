@@ -42,7 +42,5 @@ class TimeStampedEntityTest extends BaseKernel
         $this->assertInstanceOf(\DateTimeImmutable::class, $blog->getCreatedAt());
         $this->assertInstanceOf(\DateTimeImmutable::class, $blog->getUpdatedAt());
 
-        $filesystem = new Filesystem();
-        $filesystem->remove('var/database.db3');
     }
 }
