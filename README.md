@@ -25,3 +25,11 @@ Open a command console, enter your project directory and execute:
 composer require rami/entity-kit-bundle
 ```
 
+Test
+=
+
+```console
+./vendor/bin/phpunit
+```
+
+check the `tests` directory

@@ -23,4 +23,6 @@ fields: [] // An array of fields the entity has for slug generation
 ensureUnique: true // True by default. if a slug exists, it appends an incremental number at the end
 separator: '-' // defaults to '-'
 shouldRegenerateOnUpdate: false // False by default
+prefix: string // beginning of the slug
+suffix: string // ending of the slug
 ```

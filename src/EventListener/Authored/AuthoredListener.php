@@ -58,7 +58,7 @@ class AuthoredListener
             return null;
         }
 
-        $user = $this->tokenStorage->getToken()->getUser();
+        $user = $this->tokenStorage?->getToken()?->getUser();
 
         if (!$user instanceof UserInterface) {
             return null;
