@@ -33,6 +33,9 @@ class Kernel extends HttpKernel
         ];
     }
 
+    /**
+     * @throws \Exception
+     */
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/config/config.yaml');
