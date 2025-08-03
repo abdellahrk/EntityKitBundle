@@ -28,6 +28,7 @@ class EntityKitBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('../config/services.php');
+        $container->parameters()->set('entity_kit.soft_delete', $config['soft_delete'] ?? null);
     }
     
     public function configure(DefinitionConfigurator $definition): void
