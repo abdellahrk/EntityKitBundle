@@ -8,6 +8,7 @@ A set of Doctrine Entity features to automate repetitive entity tasks and ease d
 - [x] [Author (Blame)](docs/author.md)
 - [x] [UUID](docs/uuid.md)
 - [x] [IP Tagged](docs/ip_tagged.md)
+- [x] [Soft Delete](docs/soft_delete.md)
 - [ ] Logging
 - [ ] Tree
 - [ ] Translation

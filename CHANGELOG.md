@@ -1,3 +1,6 @@
+## [0.1.7] - 2025-08-03
+### Added 
+-   Soft Delete
 ## [0.1.6] - 2025-04-24
 ### Added
 - Prefix and Suffix for Slug
