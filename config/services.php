@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use Rami\EntityKitBundle\EventListener\Authored\AuthoredListener;
 use Rami\EntityKitBundle\EventListener\IpTagged\IpTaggedListener;
 use Rami\EntityKitBundle\EventListener\LoggedEntity\LoggedEntityListener;
+use Rami\EntityKitBundle\EventListener\Singleton\SingletonListener;
 use Rami\EntityKitBundle\EventListener\Slugged\SluggedListener;
 use Rami\EntityKitBundle\EventListener\SoftDelete\SoftDeleteFilterListener;
 use Rami\EntityKitBundle\EventListener\TimeStamped\TimeStampedListener;
@@ -60,4 +61,9 @@ return static function (ContainerConfigurator $container) {
         ->set(SoftDeleteFilterListener::class)
         ->args([new Reference(ManagerRegistry::class), new Reference(ParameterBagInterface::class)])
         ->tag('kernel.event_listener', ['event' => 'kernel.controller', 'method' => 'onKernelController']);
+
+    $services
+        ->set(SingletonListener::class)
+        ->args([new Reference(ManagerRegistry::class)])
+        ->tag('doctrine.event_listener', ['event' => 'prePersist']);
 };
