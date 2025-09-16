@@ -11,13 +11,14 @@ class BlogRepository extends ServiceEntityRepository
   
   ... 
   
-  public function fetchLatestArticles(int page = 1, int numberPerPage = 15): array
+  public function fetchLatestArticles(int $page = 1, int $numberPerPage = 15): array
   {
         $query = $this->createQueryBuilder('b')
             ... // query defintion
+            .setMaxResult($numberPerPage)
             .getQuery();
             
-        return $this->paginateResult($query, $page, $numberPerPage);
+        return $this->paginateResult(query: $query, page: $page, nbPerPage: $numberPerPage);
   }
 }
 
