@@ -15,7 +15,6 @@ class BlogRepository extends ServiceEntityRepository
   {
         $query = $this->createQueryBuilder('b')
             ... // query defintion
-            .setMaxResult($numberPerPage)
             .getQuery();
             
         return $this->paginateResult(query: $query, page: $page, nbPerPage: $numberPerPage);

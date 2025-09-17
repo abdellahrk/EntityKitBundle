@@ -18,7 +18,7 @@ trait EntityPaginationTrait
 {
     public function paginateResult(Query $query, int $page = 1, int $nbPerPage = 15): array
     {
-        $paginator = new Paginator($query);
+        $paginator = new Paginator($query->setMaxResults($nbPerPage));
         $results = $paginator->getQuery()->getResult();
 
         return [
