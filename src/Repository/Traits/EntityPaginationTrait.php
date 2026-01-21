@@ -34,8 +34,12 @@ trait EntityPaginationTrait
         if (array_key_exists('useOutputWalkers', $options) && is_bool($options['useOutputWalkers'])) {
             $paginator->setUseOutputWalkers($options['useOutputWalkers']);
         }
-        $results = $paginator->getQuery()->setMaxResults($nbPerPage)->getResult();
 
+        $results = $paginator
+            ->getQuery()
+            ->setFirstResult($nbPerPage * ($page - 1))
+            ->setMaxResults($nbPerPage)
+            ->getResult();
 
         return [
             "total_items" => $paginator->count(),
