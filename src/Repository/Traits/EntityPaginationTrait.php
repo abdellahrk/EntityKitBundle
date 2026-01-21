@@ -16,17 +16,33 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 trait EntityPaginationTrait
 {
-    public function paginateResult(Query $query, int $page = 1, int $nbPerPage = 15): array
+    /**
+     * @param Query $query
+     * @param int $page
+     * @param int $nbPerPage
+     * @param array|null $options ['useOutputWalkers' => bool, 'fetchJoinCollection' => bool]
+     * @return array
+     */
+    public function paginateResult(Query $query, int $page = 1, int $nbPerPage = 15, ?array $options = []): array
     {
-        $paginator = new Paginator($query->setMaxResults($nbPerPage));
-        $results = $paginator->getQuery()->getResult();
+        $paginator = new Paginator($query);
+
+        if (array_key_exists('fetchJoinCollection', $options) && is_bool($options['fetchJoinCollection'])) {
+            $paginator = new Paginator($query, $options['fetchJoinCollection']);
+        }
+        
+        if (array_key_exists('useOutputWalkers', $options) && is_bool($options['useOutputWalkers'])) {
+            $paginator->setUseOutputWalkers($options['useOutputWalkers']);
+        }
+        $results = $paginator->getQuery()->setMaxResults($nbPerPage)->getResult();
+
 
         return [
             "total_items" => $paginator->count(),
             "data" => $results,
             "current_page" => $page,
             "pages" => (int)ceil($paginator->count()/$nbPerPage),
-            "has_previous_page" => $page - 1 != 0,
+            "has_previous_page" => $page - 1 !== 0,
             "has_next_page" => !($page == ceil($paginator->count() / $nbPerPage)),
             "items_per_page" => $nbPerPage,
         ];
