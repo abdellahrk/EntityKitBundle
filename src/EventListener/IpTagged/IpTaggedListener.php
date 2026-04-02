@@ -33,6 +33,10 @@ readonly class IpTaggedListener
 
         $request = $this->requestStack->getCurrentRequest();
 
+        if (null === $request) {
+            return;
+        }
+
         $entity->setCreatedFromIp($request->getClientIp());
     }
 
