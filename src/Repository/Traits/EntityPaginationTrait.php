@@ -25,6 +25,7 @@ trait EntityPaginationTrait
      */
     public function paginateResult(Query $query, int $page = 1, int $nbPerPage = 15, ?array $options = []): array
     {
+        
         $paginator = new Paginator($query);
 
         if (array_key_exists('fetchJoinCollection', $options) && is_bool($options['fetchJoinCollection'])) {
@@ -35,15 +36,14 @@ trait EntityPaginationTrait
             $paginator->setUseOutputWalkers($options['useOutputWalkers']);
         }
 
-        $results = $paginator
+        $paginator
             ->getQuery()
             ->setFirstResult($nbPerPage * ($page - 1))
-            ->setMaxResults($nbPerPage)
-            ->getResult();
+            ->setMaxResults($nbPerPage);
 
         return [
             "total_items" => $paginator->count(),
-            "data" => $results,
+            "data" => iterator_to_array($paginator->getIterator()),
             "current_page" => $page,
             "pages" => (int)ceil($paginator->count()/$nbPerPage),
             "has_previous_page" => $page - 1 !== 0,
