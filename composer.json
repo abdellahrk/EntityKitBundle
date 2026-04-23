@@ -1,45 +1,54 @@
 {
-    "name": "rami/entity-kit-bundle",
-    "description": "A modern Symfony bundle that gives your Doctrine entities superpowers. It provides a growing collection of prebuilt behaviors — like Timestamp, Slugging, auditing, and more — as modular, composable traits or attributes.",
-    "type": "symfony-bundle",
-    "keywords": [
-        "symfony bundle", "doctrine behaviors", "entity", "doctrine extensions", "timestampable", "sluggable", "blameable", "soft-delete", "auditable", "entity-kit"
-    ],
-    "require": {
-        "php": "^8.3",
-        "symfony/http-kernel": "^6.4 || ^7.4 || ^8.0",
-        "symfony/dependency-injection": "^6.4 || ^7.4 || ^8.0",
-        "symfony/config": "^6.4 || ^7.4 || ^8.0",
-        "doctrine/orm": "^2.10 || ^3.0",
-        "symfony/property-access": "^6.4 || ^7.4 || ^8.0",
-        "symfony/string": "^6.4 || ^7.4 || ^8.0",
-        "symfony/security-bundle": "^6.4 || ^7.4 || ^8.0",
-        "symfony/doctrine-bridge": "^6.4 || ^7.4 || ^8.0",
-        "symfony/uid": "^6.4 || ^7.4 || 8.0",
-        "doctrine/doctrine-bundle": "^2.14 || ^3.0"
-    },
-    "require-dev": {
-        "phpstan/phpstan": "*",
-        "symfony/phpunit-bridge": "^6.4 || ^7.4 || ^8.0",
-        "symfony/test-pack": "^1.1",
-        "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
-        "symfony/yaml": "^6.4 || ^7.4 || ^8.0"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Rami\\EntityKitBundle\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Rami\\EntityKitBundle\\Tests\\": "tests/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Abdellah Ramadan",
-            "email": "ramadanabdel24@gmail.com"
-        }
-    ]
+  "name": "rami/entity-kit-bundle",
+  "description": "A modern Symfony bundle that gives your Doctrine entities superpowers. It provides a growing collection of prebuilt behaviors — like Timestamp, Slugging, auditing, and more — as modular, composable traits or attributes.",
+  "type": "symfony-bundle",
+  "keywords": [
+    "symfony bundle",
+    "doctrine behaviors",
+    "entity",
+    "doctrine extensions",
+    "timestampable",
+    "sluggable",
+    "blameable",
+    "soft-delete",
+    "auditable",
+    "entity-kit"
+  ],
+  "require": {
+    "php": "^8.3",
+    "symfony/http-kernel": "^6.4 || ^7.4 || ^8.0",
+    "symfony/dependency-injection": "^6.4 || ^7.4 || ^8.0",
+    "symfony/config": "^6.4 || ^7.4 || ^8.0",
+    "doctrine/orm": "^2.10 || ^3.0",
+    "symfony/property-access": "^6.4 || ^7.4 || ^8.0",
+    "symfony/string": "^6.4 || ^7.4 || ^8.0",
+    "symfony/security-bundle": "^6.4 || ^7.4 || ^8.0",
+    "symfony/doctrine-bridge": "^6.4 || ^7.4 || ^8.0",
+    "symfony/uid": "^6.4 || ^7.4 || ^8.0",
+    "doctrine/doctrine-bundle": "^2.14 || ^3.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "*",
+    "symfony/phpunit-bridge": "^6.4 || ^7.4 || ^8.0",
+    "symfony/test-pack": "^1.1",
+    "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.0",
+    "symfony/yaml": "^6.4 || ^7.4 || ^8.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Rami\\EntityKitBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Rami\\EntityKitBundle\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Abdellah Ramadan",
+      "email": "ramadanabdel24@gmail.com"
+    }
+  ]
 }
