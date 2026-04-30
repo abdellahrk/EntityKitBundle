@@ -11,6 +11,7 @@ A set of Doctrine Entity features to automate repetitive entity tasks and ease d
 - [x] [Soft Delete](docs/soft_delete.md)
 - [x] [Singleton](docs/singleton.md)
 - [x] [Pagination](docs/pagination.md)
+- [x] [Localization](docs/localization.md)
 
 Installation
 ============

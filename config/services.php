@@ -65,6 +65,5 @@ return static function (ContainerConfigurator $container) {
 
     $services
         ->set(LocalizedEntityListener::class)
-        // ->args([new Reference(OnFlushEventArgs::class)])
         ->tag("doctrine.event_listener", ["event" => "onFlush"]);
 };

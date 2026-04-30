@@ -95,6 +95,11 @@ trait LocalizationTrait
         return $this->localizations[$locale][$field] ?? null;
     }
 
+    public function getLocaleContents(string $locale): ?array
+    {
+        return $this->localizations[$locale] ?? null;
+    }
+
     private function syncCurrentValuesToStorage(): void
     {
         if (null === $this->locale) {
