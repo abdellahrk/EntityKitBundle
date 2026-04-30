@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025.
  *
@@ -23,17 +24,25 @@ trait EntityPaginationTrait
      * @param array|null $options ['useOutputWalkers' => bool, 'fetchJoinCollection' => bool]
      * @return array
      */
-    public function paginateResult(Query $query, int $page = 1, int $nbPerPage = 15, ?array $options = []): array
-    {
-        
+    public function paginateResult(
+        Query $query,
+        int $page = 1,
+        int $nbPerPage = 15,
+        ?array $options = [],
+    ): array {
         $paginator = new Paginator($query);
 
-        if (array_key_exists('fetchJoinCollection', $options) && is_bool($options['fetchJoinCollection'])) {
-            $paginator = new Paginator($query, $options['fetchJoinCollection']);
+        if (
+            array_key_exists("fetchJoinCollection", $options) &&
+            is_bool($options["fetchJoinCollection"])
+        ) {
+            $paginator = new Paginator($query, $options["fetchJoinCollection"]);
         }
-        
-        if (array_key_exists('useOutputWalkers', $options) && is_bool($options['useOutputWalkers'])) {
-            $paginator->setUseOutputWalkers($options['useOutputWalkers']);
+        if (
+            array_key_exists("useOutputWalkers", $options) &&
+            is_bool($options["useOutputWalkers"])
+        ) {
+            $paginator->setUseOutputWalkers($options["useOutputWalkers"]);
         }
 
         $paginator
@@ -45,7 +54,7 @@ trait EntityPaginationTrait
             "total_items" => $paginator->count(),
             "data" => iterator_to_array($paginator->getIterator()),
             "current_page" => $page,
-            "pages" => (int)ceil($paginator->count()/$nbPerPage),
+            "pages" => (int) ceil($paginator->count() / $nbPerPage),
             "has_previous_page" => $page - 1 !== 0,
             "has_next_page" => !($page == ceil($paginator->count() / $nbPerPage)),
             "items_per_page" => $nbPerPage,

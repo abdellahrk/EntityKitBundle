@@ -9,8 +9,8 @@ class Slugged
         public ?array $fields = [],
         public ?string $prefix = null,
         public ?string $suffix = null,
-        public bool         $ensureUnique = true,
-        public string       $separator = '-',
-        public bool         $shouldRegenerateOnUpdate = false
+        public bool $ensureUnique = true,
+        public string $separator = "-",
+        public bool $shouldRegenerateOnUpdate = false,
     ) {}
 }

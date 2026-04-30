@@ -4,7 +4,6 @@ namespace Rami\EntityKitBundle\Entity\Traits;
 
 trait TimeStampedTrait
 {
-
     protected ?\DateTimeImmutable $createdAt = null;
 
     protected ?\DateTimeImmutable $updatedAt = null;

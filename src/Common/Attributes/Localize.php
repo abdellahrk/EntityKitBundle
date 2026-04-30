@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2026.
  *
@@ -12,7 +13,4 @@
 namespace Rami\EntityKitBundle\Common\Attributes;
 
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
-class Translatable
-{
-
-}
+class Localize {}

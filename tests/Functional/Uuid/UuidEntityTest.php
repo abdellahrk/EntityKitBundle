@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025.
  *
@@ -13,18 +14,16 @@ namespace Rami\EntityKitBundle\Tests\Functional\Uuid;
 
 use Rami\EntityKitBundle\Tests\Util\App\BaseKernel;
 use Rami\EntityKitBundle\Tests\Util\Entity\Uuid\User;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Uid\Uuid;
 
 class UuidEntityTest extends BaseKernel
 {
-
     public function setUp(): void
     {
         parent::setUp();
     }
 
-    public function testUuid() : void
+    public function testUuid(): void
     {
         $user = new User();
 
@@ -37,5 +36,4 @@ class UuidEntityTest extends BaseKernel
         $this->assertInstanceOf(User::class, $user);
         $this->assertInstanceOf(Uuid::class, $user->getUuid());
     }
-
 }

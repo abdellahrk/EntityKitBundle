@@ -26,18 +26,27 @@ class BaseKernel extends KernelTestCase
     {
         self::bootKernel();
         $this->container = static::getContainer();
-        $doctrine = $this->container->get('doctrine');
+        $doctrine = $this->container->get("doctrine");
         $this->entityManager = $doctrine->getManager();
         $metaData = $this->entityManager->getMetadataFactory()->getAllMetadata();
         $schemaTool = new SchemaTool($this->entityManager);
+
+        $schemaTool->dropSchema($metaData);
+        $schemaTool->createSchema($metaData);
         $schemaTool->updateSchema($metaData);
     }
 
     public function tearDown(): void
     {
+        if (isset($this->entityManager)) {
+            $this->entityManager->close();
+        }
+
         parent::tearDown();
 
         $filesystem = new Filesystem();
-        $filesystem->remove('var/database.db3');
+        if ($filesystem->exists("var/database.db3")) {
+            $filesystem->remove("var/database.db3");
+        }
     }
 }
