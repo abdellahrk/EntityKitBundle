@@ -14,6 +14,7 @@ namespace Rami\EntityKitBundle\Entity\Traits;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[\Deprecated(message: "Use TimeStampedTrait or AuditingTrait", since: "version: 0.3.0")]
 trait MappedTimeStampedTrait
 {
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]

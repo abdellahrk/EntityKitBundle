@@ -3,6 +3,7 @@ Entity Kit Bundle
 
 A set of Doctrine Entity features to automate repetitive entity tasks and ease development.
 
+- [x] [Auditing](docs/auditing.md)
 - [x] [Timestamp](docs/timestamp.md)
 - [x] [Slug](docs/slug.md)
 - [x] [Author (Blame)](docs/author.md)

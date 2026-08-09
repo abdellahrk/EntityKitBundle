@@ -2,10 +2,15 @@
 
 namespace Rami\EntityKitBundle\Entity\Traits;
 
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
 trait TimeStampedTrait
 {
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     protected ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     protected ?\DateTimeImmutable $updatedAt = null;
 
     public function getCreatedAt(): ?\DateTimeImmutable

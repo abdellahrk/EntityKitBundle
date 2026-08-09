@@ -25,6 +25,7 @@
     "symfony/security-bundle": "^6.4 || ^7.4 || ^8.0",
     "symfony/doctrine-bridge": "^6.4 || ^7.4 || ^8.0",
     "symfony/uid": "^6.4 || ^7.4 || ^8.0",
+    "symfony/clock": "^6.4 || ^7.4 || ^8.0",
     "doctrine/doctrine-bundle": "^2.14 || ^3.0"
   },
   "require-dev": {
