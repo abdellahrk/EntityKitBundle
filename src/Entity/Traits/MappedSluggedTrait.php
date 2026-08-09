@@ -14,6 +14,10 @@ namespace Rami\EntityKitBundle\Entity\Traits;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[\Deprecated(
+    message: "Use SluggedTrait instead",
+    since: "Version 0.3.0"
+)]
 trait MappedSluggedTrait
 {
     #[ORM\Column(type: Types::STRING, nullable: true)]

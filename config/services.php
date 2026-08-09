@@ -2,6 +2,7 @@
 
 use Doctrine\Persistence\ManagerRegistry;
 use Psr\Log\LoggerInterface;
+use Rami\EntityKitBundle\EventListener\Auditing\AuditingListener;
 use Rami\EntityKitBundle\EventListener\Authored\AuthoredListener;
 use Rami\EntityKitBundle\EventListener\IpTagged\IpTaggedListener;
 use Rami\EntityKitBundle\EventListener\Localization\LocalizedEntityListener;
@@ -66,4 +67,9 @@ return static function (ContainerConfigurator $container) {
     $services
         ->set(LocalizedEntityListener::class)
         ->tag("doctrine.event_listener", ["event" => "onFlush"]);
+
+    $services
+        ->set(AuditingListener::class)
+        ->tag("doctrine.event_listener", ["event" => "prePersist"])
+        ->tag("doctrine.event_listener", ["event" => "preUpdate"]);
 };

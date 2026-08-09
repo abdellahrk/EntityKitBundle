@@ -23,7 +23,10 @@ final class AuditingListener
             return;
         }
 
-        $entity->setUpdatedAt(new \DateTimeImmutable());
+        $now = new \DateTimeImmutable();
+
+        $entity->setCreatedAt($now);
+        $entity->setUpdatedAt($now);
 
         if (null === $this->getCurrentUserIdentifier()) {
             return;
@@ -42,7 +45,6 @@ final class AuditingListener
 
         $now = new \DateTimeImmutable();
 
-        $entity->setCreatedAt($now);
         $entity->setUpdatedAt($now);
 
         if (null === $this->getCurrentUserIdentifier()) {

@@ -27,7 +27,7 @@ class SoftDeleteFilter extends SQLFilter
             return '';
         }
 
-        if (!$targetEntity->reflClass->getTraits()[SoftDeleteTrait::class]) {
+        if (!array_key_exists(SoftDeleteTrait::class, $targetEntity->reflClass->getTraits())) {
             return '';
         }
 
