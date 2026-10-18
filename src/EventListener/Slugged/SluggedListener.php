@@ -15,8 +15,7 @@ readonly class SluggedListener
 {
     public function __construct(
         private ManagerRegistry $managerRegistry,
-    )
-    {
+    ) {
     }
 
     /**
@@ -47,7 +46,7 @@ readonly class SluggedListener
      * @throws \ReflectionException
      * @throws PropertyDoesNotExistException
      */
-    private function applySlug($entity): void
+    private function applySlug(object $entity): void
     {
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
@@ -105,7 +104,7 @@ readonly class SluggedListener
         $entity->setSlug($slugFied);
     }
 
-    private function ensureUniqueSlug(object $entity, string $slug, $separator): string
+    private function ensureUniqueSlug(object $entity, string $slug, string $separator): string
     {
         $managerRegistry = $this->managerRegistry->getManagerForClass(get_class($entity));
         $count = 1;
